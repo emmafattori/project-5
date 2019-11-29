@@ -5,11 +5,11 @@ import './App.css';
 	 constructor(){
 		 super();
 		 this.state = {
-			 planTitle: ''
-		 }
+			 planTitle: '',
+			 titleOnPage: '',
+			 showTitleResults: false
 
-
-
+		 };
 	 }
 
 
@@ -18,28 +18,36 @@ import './App.css';
 		this.setState({
 			planTitle: event.target.value
 		})
+		// console.log(this.state.planTitle);
 	}
 
-	onSubmitTask = (event) => {
+	handleSubmitTask = (event) => {
 		event.preventDefault()
-		const taskToAdd = this.setState.planTitle;
+		const titleToAdd = this.state.planTitle;
+		
 		this.setState({
+			titleOnPage: titleToAdd, 
+			showNameResults: true
+		
+		})
 
+		this.setState({
+			planTitle: ''
 		})
 	}
 	render() {
 		return (
 			
 			<div className="day-schedule">
-				<form onSubmit={this.onSubmitTask}>
+				<form onSubmit={this.handleSubmitTask}>
 
-					<label htmlFor="planTitle">Enter a new plan for your bizzzzzy day</label>
-					<input type="text" name="planTitle" id="planTitle" placeholder="Ex 2:00PM Eat a Donut" onChange={this.handlePlanChange} value={this.state.planTitle}/>
+					<label htmlFor="planTitle">Enter a new plan for your bizzzzzy day </label>
+					<input type="text" name="planTitle" id="planTitle" placeholder="Ex 2:00PM Eat a Donut" onChange={this.handlePlanChange} value={this.state.planTitle} autoComplete="off"/>
 			
-					<input type="button" value="Add Item"/>
+					<input type="submit" value="Add Item"/>
 				</form>   
 
-				<p>{this.state.taskToAdd}</p>
+				{this.state.titleOnPage}
 			</div>
 		);
 	}

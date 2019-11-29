@@ -24,4 +24,10 @@ h1{
 
 .day-schedule{
 	padding-top: 15%;
+	text-align: center;
+}
+
+.day-schedule input[type=text]{
+	display: block;
+	margin: 10px auto;
 }

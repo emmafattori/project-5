@@ -23,12 +23,12 @@ class App extends Component {
 
 			const newDayPlan = []
 			for(let key in dayPlan){
-				// console.log(dayPlan[key]);
+				console.log(dayPlan[key]);
 				const dayObject = {
-					nameId: key, 
-					scheduleItem: dayPlan[key]
+					scheduleId: key, 
+					scheduleName: dayPlan[key]
 				}
-				newDayPlan.push()
+				newDayPlan.push(dayObject)
 
 			}
 
@@ -69,7 +69,14 @@ class App extends Component {
 				<AddPlan />
 
 				<div className="planResults">
+					<div className="planItem">
+						
+						{this.state.titleOnPage}
 
+						
+					
+					</div>
+					
 				</div>
 
     		</div>
