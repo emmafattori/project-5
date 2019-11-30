@@ -10,7 +10,7 @@ class App extends Component {
 		this.state = {
 				userFirstName: '',
 				userTaskItem: '', 
-				plans: []
+				dayPlan: []
 				
 			};
 	}
@@ -21,20 +21,9 @@ class App extends Component {
 			// console.log(snapshot.val());
 			const dayPlan = snapshot.val();
 
-			const newDayPlan = []
-			for(let key in dayPlan){
-				console.log(dayPlan[key]);
-				const dayObject = {
-					scheduleId: key, 
-					scheduleName: dayPlan[key]
-				}
-				newDayPlan.push(dayObject)
+			
 
-			}
-
-			this.setState({
-				userDay: newDayPlan
-			})
+			
 		})
 
 	}
@@ -53,11 +42,6 @@ class App extends Component {
 		console.log(firstNameToAdd)
 	}
 
-	// Handle Event functions for 'Add Item to Day'
-
-
-
-
 
 
 	render(){
@@ -69,13 +53,7 @@ class App extends Component {
 				<AddPlan />
 
 				<div className="planResults">
-					<div className="planItem">
-						
-						{this.state.titleOnPage}
-
-						
-					
-					</div>
+				
 					
 				</div>
 

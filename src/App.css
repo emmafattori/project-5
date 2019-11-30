@@ -31,3 +31,13 @@ h1{
 	display: block;
 	margin: 10px auto;
 }
+
+.day-item{
+
+	display: flex;
+	justify-content: space-evenly;
+	width: 50%;
+	margin: 5% auto;
+	background-color: lightgray;
+	color: black;
+}
