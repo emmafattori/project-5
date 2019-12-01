@@ -7,7 +7,6 @@ class GoodMorning extends Component {
 		this.state = {
 				userFirstName: '',
 				nameOnPage: '',
-				showNameResults: false
 				
 			};
 	}
@@ -34,12 +33,13 @@ class GoodMorning extends Component {
 	render() {
 		return (
 			<div className="enter-name">
-				<form onSubmit={this.handleSubmitName} className="enter-name">
-					<input type="text" name="name" id="name" placeholder="Enter Your Name"
+				<h1>Today's Plan</h1>
+				<form onSubmit={this.handleSubmitName} >
+					<input className="text-input"type="text" name="name" id="name" placeholder="Enter Your Name"
 					value={this.state.userFirstName} onChange={this.handleNameChange} autoComplete="off"/>
-					<input type="submit" value="Submit"/>
+					<input className = "save-day" type="submit" value="Submit"/>
 				</form>
-				<p>☀️Good Morning {this.state.nameOnPage} </p>
+				<p><span className="aria-label"role="img" alt="emoji of sun">☀️</span>Good Morning {this.state.nameOnPage} </p>
 			</div>
 		);
 	}
