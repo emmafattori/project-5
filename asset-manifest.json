@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/project-5/static/css/main.6ed1bef0.chunk.css",
+    "main.js": "/project-5/static/js/main.bc490cc0.chunk.js",
+    "main.js.map": "/project-5/static/js/main.bc490cc0.chunk.js.map",
+    "runtime-main.js": "/project-5/static/js/runtime-main.ece5c7e8.js",
+    "runtime-main.js.map": "/project-5/static/js/runtime-main.ece5c7e8.js.map",
+    "static/js/2.cf4793d1.chunk.js": "/project-5/static/js/2.cf4793d1.chunk.js",
+    "static/js/2.cf4793d1.chunk.js.map": "/project-5/static/js/2.cf4793d1.chunk.js.map",
+    "index.html": "/project-5/index.html",
+    "precache-manifest.3bb8b8e2d30a13342c5b21e20945f81c.js": "/project-5/precache-manifest.3bb8b8e2d30a13342c5b21e20945f81c.js",
+    "service-worker.js": "/project-5/service-worker.js",
+    "static/css/main.6ed1bef0.chunk.css.map": "/project-5/static/css/main.6ed1bef0.chunk.css.map",
+    "static/media/App.css": "/project-5/static/media/sunflower2soft.24b98248.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.ece5c7e8.js",
+    "static/js/2.cf4793d1.chunk.js",
+    "static/css/main.6ed1bef0.chunk.css",
+    "static/js/main.bc490cc0.chunk.js"
+  ]
+}
