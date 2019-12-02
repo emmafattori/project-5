@@ -22,7 +22,6 @@ class GoodMorning extends Component {
 	handleSubmitName = (event) => {
 		event.preventDefault()
 		const firstNameToAdd = this.state.userFirstName;
-		// console.log(firstNameToAdd)
 		this.setState({
 			nameOnPage: firstNameToAdd,
 			showNameResults: true
@@ -30,11 +29,15 @@ class GoodMorning extends Component {
 
 	}
 
+
 	render() {
 	
 		return (
 			<div className="enter-name">
-				<h1>Today's Plan</h1>
+
+				
+				<h1 id="title">Today's Plan</h1>
+				
 				<form onSubmit={this.handleSubmitName} >
 					<input className="text-input"type="text" name="name" id="name" placeholder="Enter Your Name"
 					value={this.state.userFirstName} onChange={this.handleNameChange} autoComplete="off"/>

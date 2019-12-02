@@ -28,8 +28,25 @@ height: 100vh;
     
 }
 
+.french-button{
+	position: absolute;
+	top: 5px;
+	right: 10px;
+	padding: 5px;
+	background-color:#F4E9AB;
+	font-size: 25px;
+	font-family: 'Gilda Display', serif;
+	border: none;
+	border-radius: 15px;
+	border: 2px solid #240625;
+}
 
+.french-button:hover{
+	background-color: #240625;
+	color: #F4E9AB;
+	box-shadow: 0 19px 38px rgba(0,0,0,0.54), 0 15px 12px rgba(0,0,0,0.44);
 
+}
 
 h1{	
 	margin: 0;
@@ -45,6 +62,8 @@ h1{
 	text-align: center;
 	box-shadow: 0 19px 38px rgba(0,0,0,0.54), 0 15px 12px rgba(0,0,0,0.44), 0 0 15px 12px rgba(0,0,0,0.44);
 	border-radius: 10px;
+	position: relative;
+
 
 
 }
@@ -60,8 +79,10 @@ h1{
 	color: #240625;
 	font-size: 75%;
 	margin-left: 5%;
+}
 
-	
+.plan-item i:hover{
+	cursor: pointer;
 }
 
 .enter-name form{
@@ -152,6 +173,7 @@ h1{
 	box-shadow: 0 19px 38px rgba(0,0,0,0.54), 0 15px 12px rgba(0,0,0,0.44);
 
 }
+
 
 
 
