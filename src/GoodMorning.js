@@ -31,6 +31,7 @@ class GoodMorning extends Component {
 	}
 
 	render() {
+	
 		return (
 			<div className="enter-name">
 				<h1>Today's Plan</h1>

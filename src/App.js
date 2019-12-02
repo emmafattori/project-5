@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
 import firebase from './firebase.js';
-import GoodMorning from './GoodMorning.js';
-import './App.css';
+import GoodMorning from './GoodMorning';
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
+
+const MySwal = withReactContent(Swal)
+
+
 
 class App extends Component {
 	constructor(){
@@ -10,9 +15,12 @@ class App extends Component {
 		this.state = {
 				userFirstName: '',
 				plansList: [],
-				userInput: ''
+				userInput: '',
+				userPlansList: []
 					
 			};
+
+
 
 	
 	}
@@ -38,6 +46,8 @@ class App extends Component {
 				plansList: newPlans
 			})
 		})
+
+		
 	}
 	
 
@@ -68,36 +78,48 @@ class App extends Component {
 
 		const planToBeAdded = this.state.userInput;
 
+
 		const dbRef = firebase.database().ref();
-		if(this.state.userInput !== ''){
+		
+		if(this.state.userInput !== '' && this.state.plansList.length <= 5){
 
 			dbRef.push(planToBeAdded)
 			this.setState({
 				userInput: ''
 			})
+		} else {
+			
+			MySwal.fire({
+ 				 onOpen: () => {
+    				MySwal.clickConfirm()
+  				}
+			}).then(() => {
+  				return MySwal.fire({
+					  title: "Hello Planner!",
+					  icon: "warning",
+					  text: "It seems like you have a busy day already. Let's prioritize your list so that you can have a balanced day ☮️."
+				  })
+			})
+			
 		}
-		console.log(planToBeAdded)
 	
 	}
-
-		byeByeBookie = (event) => {
-		console.log('delete you', event.target.id)
-		const dbRef = firebase.database().ref();
-
-		dbRef.child(event.target.id).remove()
-
-	}
-
+// Function to remove the item from the page & firebase if button is clicked
 		deleteItem = (event) => {
 		console.log('delete', event.target.id)
 		const dbRef = firebase.database().ref();
 
 		dbRef.child(event.target.id).remove()
-
 	}
 
+
+
+
 	render(){
+		
   		return (
+
+			
     		<div className="app-container">
 				
 				<GoodMorning />
@@ -120,21 +142,26 @@ class App extends Component {
 						{this.state.plansList.map( (planValue, i) => {
 						//   console.log(bookValue);
 						  return(
-							  <li key={i}>{planValue.planTitle}<span id={planValue.planId} onClick={this.deleteItem}className="delete">X</span></li>
-					  )
+							  <div className="plan-item">
+							 	 <li key={i}>{planValue.planTitle}</li><span className="delete"><i className="far fa-trash-alt" id={planValue.planId} onClick={this.deleteItem}></i>
+								  </span>
+
+							  </div>
+					  		)
 					  })}
 					</ul>
-
-				
 				</div>
 
 				
+
+				
 					<button className="save-day">Save</button>
-				
-				
     		</div>
+
   		);
+
 	}
+
 }
 export default App;
 
