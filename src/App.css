@@ -9,7 +9,7 @@ article,aside,details,figcaption,figure,footer,header,hgroup,nav,section,summary
 
 #root {
   text-align: center;
-  background-image: url(../src/assets/sunflower2soft.png);
+  background-image: url(../src/assets/sunflower2.jpg);
 background-size: cover;
 height: 100vh;
   
@@ -20,7 +20,7 @@ height: 100vh;
 	height: 100vh;
   	font-size: calc(10px + 2vmin);
   	color: black;
-  	font-family: 'Gilda Display', serif;
+  	font-family: 'Voltaire', sans-serif;
 	  display: flex;
 	  flex-direction: column;
 	  justify-content: space-evenly;
@@ -35,32 +35,37 @@ height: 100vh;
 	padding: 5px;
 	background-color:#F4E9AB;
 	font-size: 25px;
-	font-family: 'Gilda Display', serif;
+	font-family: 'Voltaire', sans-serif;
 	border: none;
 	border-radius: 15px;
 	border: 2px solid #240625;
 }
 
-.french-button:hover{
+.french-button:hover, :focus{
 	background-color: #240625;
-	color: #F4E9AB;
-	box-shadow: 0 19px 38px rgba(0,0,0,0.54), 0 15px 12px rgba(0,0,0,0.44);
+	color: rgb(244, 233, 171);
+	box-shadow: 0 19px 38px rgba(36, 6, 37, 0.25), 0 15px 12px rgba(36, 6, 37, 0.25), 0 0 15px 12px rgba(36, 6, 37, 0.25);}
 
+.welcome-component{
+	width: 100%;
 }
 
 h1{	
 	margin: 0;
 	padding: 0;
 	text-align: center;
-	color: #240625;
+	color: #F4E9AB;
 	font-size: 50px;
+	text-shadow: 3px 3px rgb(36, 6, 37);
+
 }
 .enter-name{
 	background-color:#F4E9AB;
 	width: 80%;
+	margin: 0 auto;
 	border: none;
 	text-align: center;
-	box-shadow: 0 19px 38px rgba(0,0,0,0.54), 0 15px 12px rgba(0,0,0,0.44), 0 0 15px 12px rgba(0,0,0,0.44);
+	box-shadow: 0 19px 38px rgba(36, 6, 37, 0.25), 0 15px 12px rgba(36, 6, 37, 0.25), 0 0 15px 12px rgba(36, 6, 37, 0.25);
 	border-radius: 10px;
 	position: relative;
 
@@ -81,8 +86,11 @@ h1{
 	margin-left: 5%;
 }
 
-.plan-item i:hover{
+.plan-item i:hover, :focus{
 	cursor: pointer;
+	background: #240625;
+	color: #F4E9AB;
+	box-shadow: 0 19px 38px rgba(36, 6, 37, 0.25), 0 15px 12px rgba(36, 6, 37, 0.25);
 }
 
 .enter-name form{
@@ -132,14 +140,14 @@ h1{
 	width: 80%;
 	border-radius: 10px;
 	text-align: center;
-	box-shadow: 0 19px 38px rgba(0,0,0,0.54), 0 15px 12px rgba(0,0,0,0.44), 0 0 15px 12px rgba(0,0,0,0.44);
+	box-shadow: 0 19px 38px rgba(36, 6, 37, 0.25), 0 15px 12px rgba(36, 6, 37, 0.25), 0 0 15px 12px rgba(36, 6, 37, 0.25);
 }
 
 .plan-result{
 	background-color: #F4E9AB;
 	width: 80%;
 	text-align: center;
-	box-shadow: 0 19px 38px rgba(0,0,0,0.54), 0 15px 12px rgba(0,0,0,0.44), 0 0 15px 12px rgba(0,0,0,0.44);
+	box-shadow: 0 19px 38px rgba(36, 6, 37, 0.25), 0 15px 12px rgba(36, 6, 37, 0.25), 0 0 15px 12px rgba(36, 6, 37, 0.25);
 	border-radius: 10px;
 }
 
@@ -164,14 +172,19 @@ h1{
 	font-weight: 800;
 	border: 2px solid #240625;
 	font-size: 16px;
-	font-family: 'Gilda Display', serif;
+	font-family: 'Voltaire', sans-serif;
 }
 
 .save-day:hover{
 	background: #240625;
 	color: #F4E9AB;
-	box-shadow: 0 19px 38px rgba(0,0,0,0.54), 0 15px 12px rgba(0,0,0,0.44);
+	box-shadow: 0 19px 38px rgba(36, 6, 37, 0.25), 0 15px 12px rgba(36, 6, 37, 0.25);
+}
 
+.save-day:focus{
+	background: #240625;
+	color: #F4E9AB;
+	box-shadow: 0 19px 38px rgba(36, 6, 37, 0.25), 0 15px 12px rgba(36, 6, 37, 0.25);
 }
 
 
@@ -186,7 +199,7 @@ h1{
 	}
 	.save-day{
 		font-size: 10px;
-		width: 20%;
+		width: 25%;
 	}
 
 

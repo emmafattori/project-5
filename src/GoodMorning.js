@@ -28,22 +28,27 @@ class GoodMorning extends Component {
 		})
 
 	}
-
-
 	render() {
 	
 		return (
-			<div className="enter-name">
+			<div className="welcome-component">
 
 				
-				<h1 id="title">Today's Plan</h1>
+				<h1 id="title">
+					{this.props.selectedLang === 'eng' ? 'Today\'s Plan' : "Plan du Jour"}
+				</h1>
 				
-				<form onSubmit={this.handleSubmitName} >
-					<input className="text-input"type="text" name="name" id="name" placeholder="Enter Your Name"
-					value={this.state.userFirstName} onChange={this.handleNameChange} autoComplete="off"/>
-					<input className = "save-day" type="submit" value="Submit"/>
-				</form>
-				<p><span className="aria-label"role="img" alt="emoji of sun">☀️</span>Good Morning {this.state.nameOnPage} </p>
+				<div className="enter-name">
+					<form onSubmit={this.handleSubmitName} >
+						<input className="text-input"type="text" name="name" id="name" placeholder="Enter Your Name"
+						value={this.state.userFirstName} onChange={this.handleNameChange} autoComplete="off"/>
+						<input className = "save-day" type="submit" value="Submit"/>
+					</form>
+					<p>
+						<span className="aria-label"role="img" alt="emoji of sun">☀️</span>
+						{this.props.selectedLang === 'eng' ? 'Good Morning ' : 'Bon Matin '}{this.state.nameOnPage} 
+					</p>
+				</div>
 			</div>
 		);
 	}

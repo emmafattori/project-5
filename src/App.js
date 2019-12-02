@@ -13,27 +13,27 @@ class App extends Component {
 		this.state = {
 				userFirstName: '',
 				plansList: [],
-				userInput: '',
-				userLang: {
-					"welcome": {
-						"en": "Today's Plan",
-						"fr": "Plan du jour"
+				userInput: '', 
+				selectedLang: 'eng',
+				inputLabel: {
+
+					'eng' :{
+						title: "Today's Plan", 
+						morning: "Good Morning",
+						submitName: "Submit",
+						newPlan: "Add new plan",
+						planButton: "Add", 
+						langButton: "FR"
 					}, 
-
-					"good-morning": {
-						"en": "Good Morning",
-						"fr": "Bon Matin"
-					},
-
-					"new-plan": {
-						"en": "Add a plan to your schedule", 
-						"fr": "Ajouter un plan à votre jour"
-					}, 
-
-					"add-button": {
-						"en": "Add Plan",
-						"fr": "Ajoutez"
-					}
+					'fr': {
+						title: "Plan du Jour",
+						morning: "Bon Matin",
+						submitName: "Soumettre",
+						newPlan: "Ajouter un plan à votre journée",
+						planButton: "Ajouter",
+						langButton: "EN"
+			}
+				
 				}			
 			};
 	}
@@ -98,7 +98,7 @@ class App extends Component {
 			})
 		} else {
 			const MySwal = withReactContent(Swal)
-			// user will get an alert if they have too many plans in one day.
+			// Error handling: user will get an alert if they have too many plans in one day.
 			MySwal.fire({
  				 onOpen: () => {
     				MySwal.clickConfirm()
@@ -115,27 +115,28 @@ class App extends Component {
 	}
 // Function to remove the item from the page & firebase if garbage can button is clicked
 	deleteItem = (event) => {
-		// console.log('delete', event.target.id)
 		const dbRef = firebase.database().ref();
 		dbRef.child(event.target.id).remove()
 	}
 
-		languageToggle = (event, idName) => {
+// Function to change the language based on the user's button click.
+	languageToggle = (event) => {
 		event.preventDefault()
-		// console.log('this is French now')
-		const frenchLabel = {
-			title: "Plan du Jour",
-			morning: "Bon Matin",
-			submitName: "Soumettre",
-			newPlan: "Ajouter un plan à votre journée",
-			planButton: "Ajouter",
-			langButton: "EN"		
+		console.log('this is French now')
+
+		if(this.state.selectedLang === 'eng'){
+			this.setState({
+			selectedLang: 'fr'
+		})
+		} else{
+			this.setState({
+				selectedLang: 'eng'
+			})
 		}
 
-		document.getElementById('add').innerHTML = frenchLabel.newPlan;
-		document.getElementById('planButton').innerHTML = frenchLabel.planButton;
-		document.getElementById('langButton').innerHTML = frenchLabel.langButton;
-	}
+		}
+
+
 
 
 
@@ -146,25 +147,26 @@ class App extends Component {
 		
     		<div className="app-container">
 				{/* Imported component "Good Morning" */}
-				<GoodMorning />
-				{/* Button for toggling French App */}
+				<GoodMorning selectedLang = {this.state.selectedLang}/>
+
+				{/* Button for toggling French Copy */}
 				
-				<button onClick={this.languageToggle}className="french-button" id="langButton">FR</button>
+				<button onClick={this.languageToggle}className="french-button" id="langButton">{this.state.inputLabel[this.state.selectedLang].langButton}</button>
 
-				<div className="add-plan">
-
-					
+				{/* Add new plan section */}
+				<div className="add-plan">		
 					<p id="add">
-						Add a plan to your schedule</p>
+						{this.state.inputLabel[this.state.selectedLang].newPlan}</p>
 
 
 					  <form onSubmit={this.handlePlanSubmit}>
 					  <label htmlFor="planTitle"></label>
 					  <input className="text-input" id="planTitle" type="text" value={this.state.userInput} onChange={this.handleChangeTitle} autoComplete="off"/>
-					  <button id="planButton"className="save-day" type="submit">Add Plan</button>
+					  <button id="planButton"className="save-day" type="submit">{this.state.inputLabel[this.state.selectedLang].planButton}</button>
 				 	  </form>
 				</div>
 
+				{/* List of plans section */}
 				<div className="plan-result">
 					<ul>
 						{this.state.plansList.map( (planValue, i) => {
@@ -178,8 +180,6 @@ class App extends Component {
 					  })}
 					</ul>
 				</div>
-
-				{/* <button className="save-day" onClick={this.saveEntireDay}>Save</button> */}
 
     		</div>
 
