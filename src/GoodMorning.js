@@ -42,7 +42,7 @@ class GoodMorning extends Component {
 					<form onSubmit={this.handleSubmitName} >
 						<input className="text-input"type="text" name="name" id="name" placeholder="Enter Your Name"
 						value={this.state.userFirstName} onChange={this.handleNameChange} autoComplete="off"/>
-						<input className = "save-day" type="submit" value="Submit"/>
+						<input className = "save-day" type="submit" value={this.props.selectedLang === 'eng' ? 'Submit' : 'Soumettre'}/>
 					</form>
 					<p>
 						<span className="aria-label"role="img" alt="emoji of sun">☀️</span>

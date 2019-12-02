@@ -32,7 +32,7 @@ height: 100vh;
 	position: absolute;
 	top: 5px;
 	right: 10px;
-	padding: 5px;
+	padding: 10px;
 	background-color:#F4E9AB;
 	font-size: 25px;
 	font-family: 'Voltaire', sans-serif;
@@ -68,7 +68,7 @@ h1{
 	box-shadow: 0 19px 38px rgba(36, 6, 37, 0.25), 0 15px 12px rgba(36, 6, 37, 0.25), 0 0 15px 12px rgba(36, 6, 37, 0.25);
 	border-radius: 10px;
 	position: relative;
-
+	padding: 10px 0;
 
 
 }
@@ -141,6 +141,7 @@ h1{
 	border-radius: 10px;
 	text-align: center;
 	box-shadow: 0 19px 38px rgba(36, 6, 37, 0.25), 0 15px 12px rgba(36, 6, 37, 0.25), 0 0 15px 12px rgba(36, 6, 37, 0.25);
+	padding: 10px 0;
 }
 
 .plan-result{
@@ -149,6 +150,7 @@ h1{
 	text-align: center;
 	box-shadow: 0 19px 38px rgba(36, 6, 37, 0.25), 0 15px 12px rgba(36, 6, 37, 0.25), 0 0 15px 12px rgba(36, 6, 37, 0.25);
 	border-radius: 10px;
+	padding: 10px 0;
 }
 
 .plan-result ul{
@@ -192,14 +194,25 @@ h1{
 
 
 /* Media Queries */
+@media (max-width:630px){
+	.save-day{
+		font-size: 18px;
+		width: 25%;
+	}
+
+	
+}
 @media (max-width:400px){
 	h1{
 		font-size: 40px;
 		margin-bottom: 10px;
 	}
 	.save-day{
-		font-size: 10px;
-		width: 25%;
+		font-size: 15px;
+		width: 35%;
+	}
+	.french-button{
+		font-size: 16px;
 	}
 
 
