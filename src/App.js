@@ -5,7 +5,6 @@ import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
 
 
-
 class App extends Component {
 	constructor(){
 		super();
@@ -62,8 +61,6 @@ class App extends Component {
 
 		
 	}
-	
-
 	// Handle Event Functions for Name section only
 
 	handleNameChange = (event) => {
@@ -113,16 +110,15 @@ class App extends Component {
 			})	
 		}
 	}
-// Function to remove the item from the page & firebase if garbage can button is clicked
+// Function to remove the item from the page & firebase if garbage can icon is clicked
 	deleteItem = (event) => {
 		const dbRef = firebase.database().ref();
 		dbRef.child(event.target.id).remove()
 	}
 
-// Function to change the language based on the user's button click.
+// Function to change the copy language based on the user's button click.
 	languageToggle = (event) => {
 		event.preventDefault()
-		console.log('this is French now')
 
 		if(this.state.selectedLang === 'eng'){
 			this.setState({
@@ -134,19 +130,15 @@ class App extends Component {
 			})
 		}
 
-		}
-
-
-
-
-
+	}
+// Render Method
 
 	render(){
 		
   		return (
 		
     		<div className="app-container">
-				{/* Imported component "Good Morning" */}
+				{/* Imported Component "Good Morning" */}
 				<GoodMorning selectedLang = {this.state.selectedLang}/>
 
 				{/* Button for toggling French Copy */}
@@ -161,7 +153,7 @@ class App extends Component {
 
 					  <form onSubmit={this.handlePlanSubmit}>
 					  <label htmlFor="planTitle"></label>
-					  <input className="text-input" id="planTitle" type="text" value={this.state.userInput} onChange={this.handleChangeTitle} autoComplete="off"/>
+					  <input className="text-input" id="planTitle" type="text" value={this.state.userInput} placeholder="Ex: Call Mom/Appelez Maman"onChange={this.handleChangeTitle} autoComplete="off"/>
 					  <button id="planButton"className="save-day" type="submit">{this.state.inputLabel[this.state.selectedLang].planButton}</button>
 				 	  </form>
 				</div>
@@ -186,7 +178,6 @@ class App extends Component {
   		);
 
 	}
-
 }
 export default App;
 
