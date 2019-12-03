@@ -71,7 +71,7 @@ h1{
 	color: #240625;
 	text-shadow: 0 0 50px #F4E9AB, 2px 2px 0 #F4E9AB, 2px -2px 0 #F4E9AB, -2px 2px 0 #F4E9AB, -2px -2px 0 #F4E9AB, 2px 0px 0 #F4E9AB, 0px 2px 0 #F4E9AB, -2px 0px 0 #F4E9AB, 0px -2px 0 #F4E9AB;;
 	font-size: 60px;
-	width: 35%;
+	width: 100%;
 	margin: 5px auto;
 }
 /* Text-shadow design from https://html-css-js.com/css/generator/text-shadow/ */
