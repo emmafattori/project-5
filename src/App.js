@@ -5,6 +5,7 @@ import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
 
 
+
 class App extends Component {
 	constructor(){
 		super();
@@ -39,13 +40,12 @@ class App extends Component {
 
 	componentDidMount(){
 		const dbRef = firebase.database().ref();
-
+		// Adding items into firebase
 		dbRef.on('value', (snapshot) => {
 			const plans = snapshot.val();
 
 			const newPlans = []
 			for(let key in plans){
-				// console.log(plans[key])
 				const individualPlanObject = {
 					planId: key, 
 					planTitle: plans[key]
@@ -53,7 +53,6 @@ class App extends Component {
 
 				newPlans.push(individualPlanObject)
 			}
-
 			this.setState({
 				plansList: newPlans
 			})
@@ -61,20 +60,8 @@ class App extends Component {
 
 		
 	}
-	// Handle Event Functions for Name section only
 
-	handleNameChange = (event) => {
-		this.setState({
-			userFirstName: event.target.value
-		})
-		// console.log(this.state.userFirstName);
-	}
-	handleSubmitName = (event) => {
-		event.preventDefault()
-		const firstNameToAdd = this.state.userFirstName;
-		console.log(firstNameToAdd)
-	}
-
+	// Function to handle change in state of new plan
 	handleChangeTitle = (event) => {
 		this.setState({
 			userInput: event.target.value
@@ -150,11 +137,14 @@ class App extends Component {
 					<p id="add">
 						{this.state.inputLabel[this.state.selectedLang].newPlan}</p>
 
-
+					  {/* Form to handle adding new plans */}
 					  <form onSubmit={this.handlePlanSubmit}>
-					  <label htmlFor="planTitle"></label>
-					  <input className="text-input" id="planTitle" type="text" value={this.state.userInput} placeholder="Ex: Call Mom/Appelez Maman"onChange={this.handleChangeTitle} autoComplete="off"/>
-					  <button id="planButton"className="save-day" type="submit">{this.state.inputLabel[this.state.selectedLang].planButton}</button>
+
+						 <label className="visually-hidden"htmlFor="planTitle">Add a new plan here</label>
+					     <input className="text-input" id="planTitle" type="text" value={this.state.userInput} placeholder="Ex: Call Mom/Appelez Maman"onChange={this.handleChangeTitle} autoComplete="off"/>
+
+						 <label className="visually-hidden" htmlFor="plan-button">Add Item to your day</label>  
+						 <button id="plan-button"className="save-day" type="submit" name="plan-buttom">{this.state.inputLabel[this.state.selectedLang].planButton}</button>
 				 	  </form>
 				</div>
 

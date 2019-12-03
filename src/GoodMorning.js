@@ -16,7 +16,6 @@ class GoodMorning extends Component {
 		this.setState({
 			userFirstName: event.target.value
 		})
-		console.log(this.state.userFirstName);
 	}
 
 	// Function to handle user submitting name
@@ -45,15 +44,20 @@ class GoodMorning extends Component {
 				<h1 id="title">
 					{this.props.selectedLang === 'eng' ? 'Today\'s Plan' : "Plan du Jour"}
 				</h1>
-				
+				{/* Form for user to enter their first name */}
 				<div className="enter-name">
 					<form onSubmit={this.handleSubmitName} >
+
+						<label htmlFor="name" className="visually-hidden"></label>
 						<input className="text-input"type="text" name="name" id="name" placeholder="Name/Nom"
 						value={this.state.userFirstName} onChange={this.handleNameChange} autoComplete="off"/>
-						<input className = "save-day" type="submit" value={this.props.selectedLang === 'eng' ? 'Submit' : 'Soumettre'}/>
+
+						<label className="visually-hidden" htmlFor="submit plan">Submit Plan</label>
+						<input className = "save-day" name="submit plan"type="submit" value={this.props.selectedLang === 'eng' ? 'Submit' : 'Soumettre'}/>
 					</form>
+
 					<p>
-						<span className="aria-label good-morning"role="img" alt="emoji of sun">☀️</span> {this.state.nameOnPage}
+						<span className="visually-hidden good-morning"role="img" alt="emoji of sun">☀️</span> {this.state.nameOnPage}
 					</p>
 				</div>
 			</div>
